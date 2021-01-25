@@ -9,6 +9,7 @@ class CA_1d:
 
         self.generate_CA()
 
+
     def generate_CA(self):
         output_pattern = [int(x) for x in np.binary_repr(self.rule, width=8)]
 
