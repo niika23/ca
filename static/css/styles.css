@@ -1,0 +1,62 @@
+body {
+  background-color: rgb(122, 120, 120);
+}
+header{
+  text-align: center;
+}
+#nav {
+  background-color: rgb(180, 180, 180);
+  color: black;
+  padding: 40px;
+  text-align: center;
+  margin-top: 2%;
+}
+
+#article {
+  background-color: rgb(180, 180, 180);
+  color: black;
+  width: 40%;
+  height: 500px;
+  float: left;  
+  margin-top: 2%;
+  margin-right: 1%;
+}
+
+#section {
+  background-color: rgb(180, 180, 180);
+  color: black;
+  width: 58%;
+  height: 500px;
+  float: right;
+  margin-top: 2%;
+  margin-left: 1%;
+
+}
+
+.input-ca-type-div {
+  overflow: hidden;
+  padding: 20px;
+}
+
+.input-ca-form {
+  float: left;
+  clear: none;
+}
+
+.input-ca-form label {
+  float: left;
+  clear: none;
+  display: block;
+  padding: 0px 1em 0px 8px;
+}
+
+.input-ca-form input[type=radio],
+.input-ca-form input.radio {
+  float: left;
+  clear: none;
+  margin: 2px 0 0 2px;
+}
+
+.hidden-for-1d{
+  padding:20px;
+}
