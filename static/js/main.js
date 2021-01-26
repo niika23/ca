@@ -21,11 +21,11 @@ function generateGraph()
         type: 'POST',
         success: function(response){
             data = JSON.parse(response);
-            console.log(data.url);
+            $(".generated-graph-div").empty().append("<img id='generated-ca-img' src='' alt='Failed to load the image'>");
             $("#generated-ca-img").attr('src', data.url);
         },
         error: function(error){
-            console.log("Something went ");
+            console.log("Something went wrong!");
         }
     });
 }
