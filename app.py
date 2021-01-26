@@ -2,33 +2,37 @@ from flask import Flask
 from flask import render_template, request, redirect, url_for
 
 import requests
+import json
 
 from ca import CA_1d
 
 app = Flask(__name__)
-
+GRAPH_URL = None
 
 @app.route('/')
 def main():
-    graph_url = None
-    return render_template("main.html", graph_url=graph_url)
+    return render_template("main.html")
 
-@app.route('/a')
+@app.route('/plot')
 def after_gen():
-    graph_url = "static/img/generated_ca.png"
-    print(graph_url)
-    return render_template("main.html", graph_url=graph_url)
+    return render_template("main.html", graph_url="static/img/generated_ca.png")
 
+@app.route("/generator/<string:rule>/<string:col>", methods=["POST", "GET"])
+def generator1D(rule, col):
+    final_json = {
+        "url" : None,
+        "response" : None
+    }
 
-@app.route("/generator1d", methods=["POST", "GET"])
-def generator1D():
-    if request.method == "GET":
-        rule = request.args.get("rule")
-        col = request.args.get("col")
-
+    try:
         generator = CA_1d(int(rule), int(col))
+        final_json["url"] = "static/img/generated_ca.png"
+        final_json["response"] = "ok"
+    except:
+        final_json["response"] = "nok"
 
-        return redirect(url_for("after_gen"))
+    return json.dumps(final_json, indent = 6)
+
 
 if __name__ == "__main__":
     app.run(debug=True)

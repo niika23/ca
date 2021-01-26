@@ -2,6 +2,7 @@
 <html>
     <head>
         <link rel="stylesheet" type="text/css" href="static/css/styles.css">
+        <script src="static/js/jquery-3.5.1.min.js"></script>
         <script src="static/js/main.js"></script>
     </head>
     <body>
@@ -15,7 +16,7 @@
 
         <article id="article">
             <div class="input-ca-type-div">
-                <form class="input-ca-form" action={{url_for("generator1D")}}>
+                <form class="input-ca-form">
                     <p>Typ automatu: </p>
                     <input type="radio" class="1d-ca" name="1d-ca" value="1" id="1d-ca" />
                     <label for="1d-ca">jednorozmerny CA </label>
@@ -28,7 +29,7 @@
                         <label for="col">Pocet stlpcov:</label>
                         <input type="text" class="1d-ca" name="col" id="col-input" />
                     </div>
-                    <button onclick="back_to_main()" type="submit">Generovat</button>
+                    <button id="generate-btn" type="button">Generovat</button>
                 </form>
             </div>
 
@@ -42,8 +43,8 @@
 
         </article>
         <section id="section">
-            <div class="generated-graph-div">
-                <img src={{graph_url}} alt="Generated CA">
+            <div id="generated-graph-div" class="generated-graph-div">
+                <img id="generated-ca-img" src="" alt="Generated CA">
             </div>
         </section>
     </body>
