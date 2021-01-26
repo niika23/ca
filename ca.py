@@ -1,14 +1,14 @@
-
+import os
 import numpy as np
 import matplotlib.pyplot as plt
 
 class CA_1d:
     def __init__(self, rule, columns):
+        self.MAX_GRAPH = 10
         self.rule = rule
         self.columns = columns
 
         self.generate_CA()
-
 
 
     def generate_CA(self):
@@ -32,9 +32,12 @@ class CA_1d:
         plt.axis('off')
         plt.imshow(canvas[:, 1:self.columns+1], cmap='Greys', interpolation='nearest')
         # plt.title("Elementary Cellular Automata Rule {}".format(self.rule))
-        plt.savefig("static/img/generated_ca.png", bbox_inches='tight')
-        # plt.show()
+        filename = "static/img/generated_ca_{}_{}.png".format(self.rule, self.columns)
+        plt.savefig(filename, bbox_inches='tight')
+        self.clearImgs()
 
-c = CA_1d(5,5)
+    def clearImgs(self):
+        files = os.listdir("static/img/")
 
-
+        if len(files) > self.MAX_GRAPH:
+            os.remove("static/img/{}".format(files[-1]))

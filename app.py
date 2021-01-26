@@ -26,7 +26,7 @@ def generator1D(rule, col):
 
     try:
         generator = CA_1d(int(rule), int(col))
-        final_json["url"] = "static/img/generated_ca.png"
+        final_json["url"] = "static/img/generated_ca_{}_{}.png".format(rule, col)
         final_json["response"] = "ok"
     except:
         final_json["response"] = "nok"
