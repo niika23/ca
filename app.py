@@ -13,10 +13,6 @@ GRAPH_URL = None
 def main():
     return render_template("main.html")
 
-@app.route('/plot')
-def after_gen():
-    return render_template("main.html", graph_url="static/img/generated_ca.png")
-
 @app.route("/generator/<string:rule>/<string:col>", methods=["POST", "GET"])
 def generator1D(rule, col):
     final_json = {
